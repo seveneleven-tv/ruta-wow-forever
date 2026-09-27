@@ -127,6 +127,9 @@ a.npc:hover{color:var(--gold-hi);text-decoration-color:var(--gold-hi)}
 .steps b{color:var(--moon);display:block;font-size:1.2rem}
 .centernote{text-align:center}
 
+.dim{color:var(--mute);font-weight:400}
+a.dglink{color:var(--moon);font-weight:700;text-decoration:none;border-bottom:1.5px dotted var(--gold)}
+a.dglink:hover{color:var(--gold-hi)}
 /* dungeons */
 .dungeons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px}
 .dungeon{background:var(--panel);border:1px solid rgba(221,179,104,.55);border-radius:14px;padding:20px 22px}
@@ -134,6 +137,12 @@ a.npc:hover{color:var(--gold-hi);text-decoration-color:var(--gold-hi)}
 .dungeon h3{font-weight:700;font-size:1.5rem;margin-top:4px}
 .dungeon .where{color:var(--mute)}
 .dungeon p{margin:10px 0 0}
+.dungeon .pending{color:var(--mute);font-style:italic}
+.quests{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.quests li{padding-left:18px;position:relative;line-height:1.35}
+.quests li::before{content:"";position:absolute;left:2px;top:.55em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.quests small{display:block;font-size:1rem}
+.dungeon{scroll-margin-top:20px}
 
 /* talents */
 .bars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
@@ -214,7 +223,7 @@ footer{color:var(--mute);font-size:.95rem;text-align:center;padding:28px 24px 36
     <div class="intro">
       <div class="honest">
         <h2 class="gold">Esto no es una guía</h2>
-        <p>Es lo que voy a hacer yo de salida. Seguramente no es la ruta más rápida ni la mejor build, solo el plan con el que empiezo. Está montado con datos de la beta, así que cambiará en cuanto el juego salga y vea cómo va.</p>
+        <p>Es lo que voy a hacer yo de salida. Seguramente no es la ruta más rápida ni la mejor build, solo el plan que tengo. Está montado con datos de la beta e información de WoW Classic.</p>
       </div>
       <div class="launch">
         <strong class="gold">4 de noviembre de 2026</strong>
@@ -230,14 +239,13 @@ footer{color:var(--mute);font-size:.95rem;text-align:center;padding:28px 24px 36
         <div class="legend"><span><i></i>Zona con mazmorra que intentaré hacer</span><span class="warn">* Pendiente de confirmar en el lanzamiento</span></div>
       </div>
       <ol class="route">
-<li class="stop"><div class="lv">1–10</div><div class="dot"></div><div class="card"><h3>Teldrassil</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2000" target="_blank" rel="noopener">Webwood Silkspinner</a><small>nv 8-9</small></span><em>Bite 2</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=1997" target="_blank" rel="noopener">Strigid Hunter</a><small>nv 8-9</small></span><em>Claw 2</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2033" target="_blank" rel="noopener">Elder Nightsaber</a><small>nv 8-9</small></span><em>Mascota fija, 1.4 s</em></li></ul><p class="note">En cuanto tenga Tame Beast, ronda de caza antes de irme de la isla.</p></div></li>
-<li class="stop"><div class="lv">10–19</div><div class="dot"></div><div class="card"><h3>Darkshore <span class="tag">hasta 19</span></h3><p class="note">Solo misiones. Voy recogiendo las de Blackfathom Deeps.</p></div></li>
-<li class="stop dg"><div class="lv">18–25</div><div class="dot"></div><div class="card"><h3>Ashenvale <span class="tag">hasta 25</span></h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3823" target="_blank" rel="noopener">Ghostpaw Runner</a><small>nv 19-20</small></span><em>Bite 3</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3812" target="_blank" rel="noopener">Clattering Crawler</a><small>nv 19-20</small></span><em>Claw 3 *</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3810" target="_blank" rel="noopener">Elder Ashenvale Bear</a><small>nv 25-26</small></span><em>Claw 4</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=10052" target="_blank" rel="noopener">Maluressian</a></span><span>Mazmorra: <b>Blackfathom Deeps</b></span></div></div></li>
-<li class="stop dg"><div class="lv">24–30</div><div class="dot"></div><div class="card"><h3>Hillsbrad Foothills</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2349" target="_blank" rel="noopener">Giant Moss Creeper</a><small>nv 24-25</small></span><em>Bite 4</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2384" target="_blank" rel="noopener">Starving Mountain Lion</a><small>nv 23-24</small></span><em>Mascota fija hasta 60, 1.2 s</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=9978" target="_blank" rel="noopener">Wesley</a></span><span>Mazmorra: <b>City of Dalaran</b></span></div></div></li>
+<li class="stop"><div class="lv">1–10</div><div class="dot"></div><div class="card"><h3>Teldrassil</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2000" target="_blank" rel="noopener">Webwood Silkspinner</a><small>nv 8-9</small></span><em>Bite 2</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=1997" target="_blank" rel="noopener">Strigid Hunter</a><small>nv 8-9</small></span><em>Claw 2</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2033" target="_blank" rel="noopener">Elder Nightsaber</a><small>nv 8-9</small></span><em>Mascota fija, 1.4 s</em></li></ul></div></li>
+<li class="stop"><div class="lv">10–19</div><div class="dot"></div><div class="card"><h3>Darkshore <span class="tag">hasta 19</span></h3><p class="note">Solo misiones.</p></div></li>
+<li class="stop dg"><div class="lv">18–25</div><div class="dot"></div><div class="card"><h3>Ashenvale <span class="tag">hasta 25</span></h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3823" target="_blank" rel="noopener">Ghostpaw Runner</a><small>nv 19-20</small></span><em>Bite 3</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3812" target="_blank" rel="noopener">Clattering Crawler</a><small>nv 19-20</small></span><em>Claw 3 *</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=3810" target="_blank" rel="noopener">Elder Ashenvale Bear</a><small>nv 25-26</small></span><em>Claw 4</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=10052" target="_blank" rel="noopener">Maluressian</a></span><span>Mazmorra: <a class="dglink" href="#bfd">Blackfathom Deeps</a> <small class="dim">(4 quests)</small></span></div></div></li>
+<li class="stop dg"><div class="lv">24–30</div><div class="dot"></div><div class="card"><h3>Hillsbrad Foothills</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2349" target="_blank" rel="noopener">Giant Moss Creeper</a><small>nv 24-25</small></span><em>Bite 4</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2384" target="_blank" rel="noopener">Starving Mountain Lion</a><small>nv 23-24</small></span><em>Mascota fija hasta 60, 1.2 s</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=9978" target="_blank" rel="noopener">Wesley</a></span><span>Mazmorra: <a class="dglink" href="#dalaran">City of Dalaran</a> <small class="dim">(quests aún sin conocer)</small></span></div></div></li>
 <li class="stop"><div class="lv">30–35</div><div class="dot"></div><div class="card"><h3>Arathi Highlands <span class="tag">hasta 35</span></h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=2563" target="_blank" rel="noopener">Plains Creeper</a><small>nv 32-33</small></span><em>Bite 5</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=9978" target="_blank" rel="noopener">Wesley</a></span></div></div></li>
 <li class="stop"><div class="lv">35–42</div><div class="dot"></div><div class="card"><h3>Dustwallow Marsh <span class="tag">hasta 40</span></h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=4343" target="_blank" rel="noopener">Drywallow Snapper</a><small>nv 37-38</small></span><em>Claw 5 *</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=4345" target="_blank" rel="noopener">Drywallow Daggermaw</a><small>nv 40-41</small></span><em>Bite 6 *</em></li><li><span><b>Ripscale</b><small>nv 39, rare</small></span><em>Bite 6, plan B</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=10047" target="_blank" rel="noopener">Michael</a></span></div><p class="note"><span class="warn">Si Drywallow Snapper no enseña Claw 5, me lo salto y cojo Claw 6 en Tanaris.</span></p></div></li>
-<li class="stop dg"><div class="lv">40–50</div><div class="dot"></div><div class="card"><h3>Tanaris</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=5422" target="_blank" rel="noopener">Scorpid Hunter</a><small>nv 40-41</small></span><em>Claw 6</em></li><li><span><b>Giant Surf Glider</b><small>nv 48-50</small></span><em>Bite 7, a nivel 48</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=9985" target="_blank" rel="noopener">Laziphus</a></span><span>Mazmorra: <b>Zul'Farrak</b></span></div></div></li>
-<li class="stop dg"><div class="lv">~48</div><div class="dot"></div><div class="card"><h3>Escapada a Dustwallow</h3><div class="meta"><span>Mazmorra: <b>Alcaz Prison</b></span></div><p class="note">Vuelo desde Tanaris a Theramore, hago la mazmorra con sus misiones y vuelvo.</p></div></li>
+<li class="stop dg"><div class="lv">40–50</div><div class="dot"></div><div class="card"><h3>Tanaris</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=5422" target="_blank" rel="noopener">Scorpid Hunter</a><small>nv 40-41</small></span><em>Claw 6</em></li><li><span><b>Giant Surf Glider</b><small>nv 48-50</small></span><em>Bite 7, a nivel 48</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=9985" target="_blank" rel="noopener">Laziphus</a></span><span>Mazmorra: <a class="dglink" href="#zf">Zul'Farrak</a> <small class="dim">(7 quests)</small></span><span>Mazmorra: <a class="dglink" href="#alcaz">Alcaz Prison</a> <small class="dim">(nivel 48, en Dustwallow; quests aún sin conocer)</small></span></div></div></li>
 <li class="stop"><div class="lv">48–55</div><div class="dot"></div><div class="card"><h3>Felwood</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=8958" target="_blank" rel="noopener">Angerclaw Mauler</a><small>nv 49-50</small></span><em>Claw 7</em></li><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=8961" target="_blank" rel="noopener">Felpaw Ravager</a><small>nv 51-52</small></span><em>Bite 7, plan B</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=10052" target="_blank" rel="noopener">Maluressian</a></span></div></div></li>
 <li class="stop"><div class="lv">53–60</div><div class="dot"></div><div class="card"><h3>Winterspring</h3><ul class="tames"><li><span><a class="npc" href="https://www.wowhead.com/classic/npc=7445" target="_blank" rel="noopener">Elder Shardtooth</a><small>nv 57-58</small></span><em>Claw 8</em></li></ul><div class="meta"><span>Establo: <a class="npc" href="https://www.wowhead.com/classic/npc=11119" target="_blank" rel="noopener">Azzleby</a></span></div></div></li>
 
@@ -275,38 +283,39 @@ footer{color:var(--mute);font-size:.95rem;text-align:center;padding:28px 24px 36
         <li><b>Aprender</b>En cuanto aprendo la habilidad, la abandono.</li>
         <li><b>Enseñar</b>Recupero mi mascota y le enseño el rango con Beast Training.</li>
       </ol>
+
     </section>
 
     <section id="mazmorras" class="block" aria-labelledby="h-mazmorras">
       <div class="head">
         <h2 id="h-mazmorras" class="gold">Mazmorras que intentaré hacer</h2>
         <svg class="rule" viewBox="0 0 300 14" aria-hidden="true"><line x1="0" y1="7" x2="138" y2="7"/><line x1="162" y1="7" x2="300" y2="7"/><rect x="145" y="2" width="10" height="10" transform="rotate(45 150 7)"/></svg>
-        <p class="lead">En Forever la XP buena de las mazmorras está en sus misiones, no en los mobs, así que la idea es entrar una vez con todas las misiones cogidas. Estas cuatro me pillan de camino.</p>
+        <p class="lead">En Forever la mayor parte de la XP de las mazmorras está en las misiones, no en los mobs, así que la idea es entrar una vez con todas las misiones cogidas. Estas cuatro me pillan de camino.</p>
       </div>
       <div class="dungeons">
-        <article class="dungeon">
+        <article class="dungeon" id="bfd">
           <div class="lvl">Recomendada nivel 22</div>
           <h3 class="gold">Blackfathom Deeps</h3>
           <div class="where">Ashenvale</div>
-          <p>La primera parada en serio. Llego con las misiones de Darkshore y Ashenvale recogidas.</p>
+          <ul class="quests"><li><a class="npc" href="https://www.wowhead.com/classic/quest=971" target="_blank" rel="noopener">Knowledge in the Deeps</a></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=6561" target="_blank" rel="noopener">Blackfathom Villainy</a></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=1275" target="_blank" rel="noopener">Researching the Corruption</a></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=1199" target="_blank" rel="noopener">Twilight Falls</a></li></ul>
         </article>
-        <article class="dungeon">
+        <article class="dungeon" id="dalaran">
           <div class="lvl">Nueva, recomendada nivel 28</div>
           <h3 class="gold">City of Dalaran</h3>
-          <div class="where">Alterac Mountains, al lado de Hillsbrad</div>
-          <p>Una de las mazmorras nuevas de Forever. Tiene 9 jefes, así que toca reservarle tiempo.</p>
+          <div class="where">Alterac Mountains</div>
+          <p class="pending">Todavía no se saben las quests.</p>
         </article>
-        <article class="dungeon">
+        <article class="dungeon" id="zf">
           <div class="lvl">Recomendada nivel 42</div>
           <h3 class="gold">Zul'Farrak</h3>
           <div class="where">Tanaris</div>
-          <p>Está dentro de la zona donde paso del 40 al 50. La que mejor encaja de toda la ruta.</p>
+          <ul class="quests"><li><a class="npc" href="https://www.wowhead.com/classic/quest=3042" target="_blank" rel="noopener">Troll Temper</a> <small class="dim">Gadgetzan</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=2865" target="_blank" rel="noopener">Scarab Shells</a> <small class="dim">Gadgetzan</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=2768" target="_blank" rel="noopener">Divino-matic Rod</a> <small class="dim">Gadgetzan</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=2846" target="_blank" rel="noopener">Tiara of the Deep</a> <small class="dim">Tabetha, Dustwallow Marsh</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=3527" target="_blank" rel="noopener">The Prophecy of Mosh'aru</a> <small class="dim">Steamwheedle Port; antes, Screecher Spirits</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=2770" target="_blank" rel="noopener">Gahz'rilla</a> <small class="dim">Shimmering Flats; necesita el Mallet of Zul'Farrak</small></li><li><a class="npc" href="https://www.wowhead.com/classic/quest=2991" target="_blank" rel="noopener">Nekrum's Medallion</a> <small class="dim">solo Alianza; cadena desde Witherbark Cages, en The Hinterlands</small></li></ul>
         </article>
-        <article class="dungeon">
+        <article class="dungeon" id="alcaz">
           <div class="lvl">Nueva, recomendada nivel 48</div>
           <h3 class="gold">Alcaz Prison</h3>
           <div class="where">Dustwallow Marsh</div>
-          <p>Escapada desde Tanaris volando a Theramore. Recojo las misiones de camino y vuelvo.</p>
+          <p class="pending">Todavía no se saben las quests.</p>
         </article>
       </div>
     </section>
@@ -315,7 +324,7 @@ footer{color:var(--mute);font-size:.95rem;text-align:center;padding:28px 24px 36
       <div class="head">
         <h2 id="h-talentos" class="gold">Talentos 31 / 20 / 0</h2>
         <svg class="rule" viewBox="0 0 300 14" aria-hidden="true"><line x1="0" y1="7" x2="138" y2="7"/><line x1="162" y1="7" x2="300" y2="7"/><rect x="145" y="2" width="10" height="10" transform="rotate(45 150 7)"/></svg>
-        <p class="lead">Beast Mastery para que la mascota y los halcones hagan el trabajo, con 20 puntos en Marksmanship para rematar.</p>
+        <p class="lead">Build centrada en Beast Mastery, con la mascota como principal fuente de daño, y 20 puntos en Marksmanship.</p>
       </div>
 
       <div class="bars">
@@ -331,7 +340,7 @@ footer{color:var(--mute);font-size:.95rem;text-align:center;padding:28px 24px 36
 
       <ol class="phases">
         <li><span class="lv">10–19</span><b>Arranque</b><span>Deadly Aspects 5/5, Focused Fire 2/2, Pathfinding 2/2 y el primer punto en Endurance Training.</span></li>
-        <li class="key"><span class="lv">20–25</span><b>Furia y halcón</b><span>Unleashed Fury 5/5 y Summon Hawk a nivel 25. Desde aquí, dos halcones siempre fuera.</span></li>
+        <li class="key"><span class="lv">20–25</span><b>Furia y halcón</b><span>Unleashed Fury 5/5 y Summon Hawk a nivel 25.</span></li>
         <li class="key"><span class="lv">26–34</span><b>Utilidad</b><span>Ferocity 5/5, con Bestial Swiftness en el 29 e Intimidation en el 30, y Bestial Discipline 2/2.</span></li>
         <li class="key"><span class="lv">35–40</span><b>Cierre de BM</b><span>Frenzy 5/5 y Bestial Wrath a nivel 40.</span></li>
         <li><span class="lv">41–52</span><b>Salto a MM</b><span>Lethal Attacks 5/5, Careful Aim 5/5 y Rapid Killing 2/2.</span></li>
