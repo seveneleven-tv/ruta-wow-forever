@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi ruta en WoW Forever: Night Elf Hunter | Seveneleven</title>
+<meta name="description" content="La ruta de leveo 1-60, las mascotas y la build que voy a usar de salida en WoW Forever con mi Night Elf Hunter.">
+<meta property="og:title" content="Mi ruta en WoW Forever: Night Elf Hunter">
+<meta property="og:description" content="Ruta 1-60, mascotas para Bite y Claw, mazmorras y build Beast Mastery 31/20/0.">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0B1417; --deep:#0F1D23; --panel:#12222A; --line:#26414B;
+  --gold:#D9A845; --moon:#EDE6D3; --mute:#A7B6AF; --leaf:#6FB3A0; --ember:#E08A6D;
+  --display:"Cinzel", Georgia, serif;
+  --body:"Barlow Condensed", "Arial Narrow", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--moon);font-family:var(--body);font-size:1.2rem;line-height:1.5;
+  background-image:radial-gradient(1px 1px at 12% 18%,rgba(237,230,211,.45) 50%,transparent 51%),
+  radial-gradient(1px 1px at 78% 9%,rgba(237,230,211,.35) 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 64% 31%,rgba(217,168,69,.4) 50%,transparent 51%),
+  radial-gradient(1px 1px at 33% 52%,rgba(237,230,211,.3) 50%,transparent 51%),
+  radial-gradient(1px 1px at 88% 66%,rgba(237,230,211,.3) 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 20% 83%,rgba(217,168,69,.3) 50%,transparent 51%);
+  background-attachment:fixed}
+a{color:var(--gold)}
+a:hover{color:var(--moon)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.05;margin:0}
+h2{font-size:clamp(2rem,4.5vw,3rem)}
+.lead{color:var(--mute);max-width:62ch;font-size:1.3rem;margin:.8rem 0 0}
+section{padding:88px 0 0}
+.tag{display:inline-block;border-radius:999px;padding:2px 12px;font-weight:700;font-size:1rem;line-height:1.6}
+.tag-gold{background:var(--gold);color:var(--night)}
+.tag-line{border:1.5px solid var(--gold);color:var(--gold)}
+.tag-mute{border:1.5px solid var(--line);color:var(--mute)}
+
+/* nav */
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--moon);font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.14em}
+.brand img{width:40px;height:40px}
+.top nav{display:flex;gap:22px;flex-wrap:wrap}
+.top nav a{color:var(--mute);text-decoration:none;font-weight:600}
+.top nav a:hover{color:var(--gold)}
+
+/* hero */
+.hero{position:relative;padding:72px 0 24px;overflow:hidden}
+.moon{position:absolute;right:-40px;top:0;width:min(420px,70vw);opacity:.9;pointer-events:none;animation:rise 1.6s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:.9;transform:none}}
+@media (prefers-reduced-motion:reduce){.moon{animation:none}html{scroll-behavior:auto}}
+.hero .kick{color:var(--gold);font-weight:700;font-size:1.25rem}
+.hero h1{font-size:clamp(3.2rem,10vw,7rem);margin-top:10px;position:relative}
+.hero .sub{font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--mute);max-width:34ch;margin:18px 0 0;position:relative}
+.honest{position:relative;margin-top:40px;background:var(--deep);border:1px solid var(--gold);border-radius:18px;padding:24px 28px;max-width:720px}
+.honest h3{font-size:1.35rem;color:var(--gold);margin-bottom:8px}
+.honest p{margin:0;color:var(--moon)}
+.launch{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;margin-top:28px;position:relative}
+.launch strong{font-family:var(--display);font-size:2.2rem;color:var(--gold)}
+.launch span{color:var(--mute)}
+
+/* route */
+.route{list-style:none;margin:40px 0 0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:111px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.stop{display:grid;grid-template-columns:92px 40px 1fr;gap:0;padding:0 0 26px}
+.stop .lv{font-weight:700;color:var(--gold);font-size:1.35rem;text-align:right;padding-right:0;padding-top:2px}
+.stop .dot{width:18px;height:18px;border-radius:50%;border:3px solid var(--gold);background:var(--night);margin:8px auto 0;position:relative;z-index:1}
+.stop.dg .dot{background:var(--gold)}
+.stop .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.stop h3{font-size:1.55rem;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.stop h3 .tag{font-family:var(--body);letter-spacing:0}
+.tames{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:4px}
+.tames li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:3px 0}
+.tames li:last-child{border-bottom:0}
+.tames b{font-weight:700}
+.tames small{color:var(--mute);font-size:1rem;margin-left:8px}
+.tames em{font-style:normal;color:var(--gold);font-weight:600;text-align:right}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:10px;color:var(--mute);font-size:1.05rem}
+.meta b{color:var(--moon);font-weight:600}
+.note{margin:10px 0 0;color:var(--leaf);font-size:1.08rem}
+.warn{color:var(--ember)}
+.legend{display:flex;gap:24px;flex-wrap:wrap;color:var(--mute);font-size:1.05rem;margin-top:6px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--gold);vertical-align:-1px;margin-right:8px}
+
+/* pets */
+.ladder{margin-top:36px;display:grid;grid-template-columns:1fr 96px 1fr;gap:10px 14px;align-items:stretch}
+.ladder .head{font-weight:700;color:var(--gold);font-size:1.3rem}
+.ladder .head.r{text-align:right}
+.ladder .head.c{text-align:center;color:var(--mute);font-size:1.05rem}
+.beast{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+.beast.r{text-align:right}
+.beast b{display:block;font-size:1.2rem}
+.beast span{color:var(--mute);font-size:1rem}
+.rank{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rank b{font-family:var(--display);color:var(--gold);font-size:1.7rem;line-height:1}
+.rank span{color:var(--mute);font-size:.95rem}
+.fixed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.fixed div{border:1.5px solid var(--gold);border-radius:14px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.fixed small{display:block;color:var(--gold);font-weight:600;font-size:1rem}
+.fixed b{font-size:1.35rem}
+.fixed strong{font-family:var(--display);font-size:2rem;color:var(--gold)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.steps li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;counter-increment:s;color:var(--mute)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--night);font-family:var(--display);font-weight:800;margin-bottom:8px}
+.steps b{color:var(--moon);display:block;font-size:1.2rem}
+
+/* dungeons */
+.dungeons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px}
+.dungeon{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.dungeon h3{font-size:1.5rem}
+.dungeon .where{color:var(--mute);margin:4px 0 10px}
+.dungeon p{margin:10px 0 0}
+
+/* talents */
+.bars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
+.bar header{display:flex;justify-content:space-between;font-weight:700;font-size:1.25rem}
+.bar header span{font-family:var(--display)}
+.track{height:10px;border-radius:99px;background:var(--panel);border:1px solid var(--line);margin-top:8px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px}
+figure{margin:28px 0 0}
+figure img{border:1px solid var(--gold);border-radius:12px}
+figcaption{color:var(--mute);font-size:1rem;margin-top:8px}
+.phases{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:8px}
+.phases li{display:grid;grid-template-columns:90px 170px 1fr;gap:16px;align-items:baseline;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 18px}
+.phases .lv{font-family:var(--display);color:var(--gold);font-size:1.15rem}
+.phases b{font-size:1.2rem}
+.phases span{color:var(--mute)}
+.phases li.key{border-color:var(--gold)}
+
+/* close */
+.close{margin:110px 0 0;padding:64px 0 40px;border-top:1px solid var(--line);text-align:center}
+.close img{width:84px;height:84px;margin:0 auto 20px}
+.close h2{font-size:clamp(2.4rem,7vw,4.4rem)}
+.close p{color:var(--mute);font-size:1.35rem;margin:14px auto 0;max-width:40ch}
+.close a.btn{display:inline-block;margin-top:26px;background:var(--gold);color:var(--night);text-decoration:none;font-weight:700;font-size:1.25rem;padding:12px 28px;border-radius:999px}
+.close a.btn:hover{background:var(--moon)}
+footer{color:var(--mute);font-size:.95rem;text-align:center;padding:0 0 36px}
+
+@media (max-width:760px){
+  .route::before{left:15px}
+  .stop{grid-template-columns:32px 1fr}
+  .stop .lv{grid-column:2;text-align:left;order:0;padding:0 0 6px}
+  .stop .dot{grid-row:1 / span 2;grid-column:1;margin:4px 0 0 6px}
+  .stop .card{grid-column:2}
+  .ladder{grid-template-columns:1fr 64px 1fr}
+  .rank b{font-size:1.3rem}
+  .beast{padding:8px 10px}.beast b{font-size:1.05rem}
+  .fixed,.dungeons{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bars{grid-template-columns:1fr}
+  .phases li{grid-template-columns:70px 1fr}
+  .phases li span{grid-column:1 / -1}
+  .tames li{flex-direction:column;gap:0}
+  .tames em{text-align:left}
+  .moon{animation:none;opacity:.35;width:240px;right:-60px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#inicio"><img src="img/logo.svg" alt="">SEVENELEVEN</a>
+    <nav aria-label="Secciones">
+      <a href="#ruta">Ruta</a>
+      <a href="#mascotas">Mascotas</a>
+      <a href="#mazmorras">Mazmorras</a>
+      <a href="#talentos">Talentos</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="titulo">
+      <svg class="moon" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+        <path d="M205 40 A120 120 0 1 0 260 210 A95 95 0 1 1 205 40 Z" stroke="#D9A845" stroke-width="1.6"/>
+        <circle cx="236" cy="78" r="3" fill="#D9A845"/><circle cx="268" cy="126" r="2" fill="#EDE6D3"/><circle cx="200" cy="112" r="1.8" fill="#EDE6D3"/>
+      </svg>
+      <div class="kick">WoW Forever, Night Elf Hunter</div>
+      <h1 id="titulo">Mi ruta<br>de 1 a 60</h1>
+      <p class="sub">Por dónde voy a subir, qué bichos voy a tamear para aprender Bite y Claw, qué mazmorras intentaré hacer y con qué talentos.</p>
+
+      <div class="honest">
+        <h3>Esto no es una guía</h3>
+        <p>Es lo que voy a hacer yo de salida. Seguramente no es la ruta más rápida ni la mejor build, solo el plan con el que empiezo. Está montado con datos de la beta, así que cambiará en cuanto el juego salga y vea cómo va.</p>
+      </div>
+
+      <div class="launch">
+        <strong>4 de noviembre de 2026</strong>
+        <span>15:00 PST, que en Europa son las 00:00 del 5 de noviembre</span>
+      </div>
+    </section>
+
+    <section id="ruta" aria-labelledby="h-ruta">
+      <h2 id="h-ruta">La ruta</h2>
+      <p class="lead">Zona a zona, con lo que tameo en cada una y el establo donde lo hago. Donde pone "hasta", es el nivel mínimo al que me quedo antes de moverme.</p>
+      <div class="legend"><span><i></i>Zona con mazmorra que intentaré hacer</span><span class="warn">* Pendiente de confirmar en el lanzamiento</span></div>
+
+      <ol class="route">
+        <li class="stop">
+          <div class="lv">1–10</div><div class="dot"></div>
+          <div class="card">
+            <h3>Teldrassil</h3>
+            <ul class="tames">
+              <li><span><b>Webwood Silkspinner</b><small>nv 8-9</small></span><em>Bite 2</em></li>
+              <li><span><b>Strigid Hunter</b><small>nv 8-9</small></span><em>Claw 2</em></li>
+              <li><span><b>Elder Nightsaber</b><small>nv 8-9</small></span><em>Mascota fija, 1.4 s</em></li>
+            </ul>
+            <p class="note">En cuanto tenga Tame Beast, ronda de caza antes de irme de la isla.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <div class="lv">10–19</div><div class="dot"></div>
+          <div class="card">
+            <h3>Darkshore <span class="tag tag-mute">hasta 19</span></h3>
+            <p class="note">Solo misiones. Voy recogiendo las de Blackfathom Deeps.</p>
+          </div>
+        </li>
+        <li class="stop dg">
+          <div class="lv">18–25</div><div class="dot"></div>
+          <div class="card">
+            <h3>Ashenvale <span class="tag tag-mute">hasta 25</span></h3>
+            <ul class="tames">
+              <li><span><b>Ghostpaw Runner</b><small>nv 19-20</small></span><em>Bite 3</em></li>
+              <li><span><b>Clattering Crawler</b><small>nv 19-20</small></span><em>Claw 3 *</em></li>
+              <li><span><b>Elder Ashenvale Bear</b><small>nv 25-26</small></span><em>Claw 4</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Maluressian</b></span><span>Mazmorra: <b>Blackfathom Deeps</b></span></div>
+          </div>
+        </li>
+        <li class="stop dg">
+          <div class="lv">24–30</div><div class="dot"></div>
+          <div class="card">
+            <h3>Hillsbrad Foothills</h3>
+            <ul class="tames">
+              <li><span><b>Giant Moss Creeper</b><small>nv 24-25</small></span><em>Bite 4</em></li>
+              <li><span><b>Starving Mountain Lion</b><small>nv 23-24</small></span><em>Mascota fija hasta 60, 1.2 s</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Wesley</b></span><span>Mazmorra: <b>City of Dalaran</b></span></div>
+          </div>
+        </li>
+        <li class="stop">
+          <div class="lv">30–35</div><div class="dot"></div>
+          <div class="card">
+            <h3>Arathi Highlands <span class="tag tag-mute">hasta 35</span></h3>
+            <ul class="tames">
+              <li><span><b>Plains Creeper</b><small>nv 32-33</small></span><em>Bite 5</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Wesley</b></span></div>
+          </div>
+        </li>
+        <li class="stop">
+          <div class="lv">35–42</div><div class="dot"></div>
+          <div class="card">
+            <h3>Dustwallow Marsh <span class="tag tag-mute">hasta 40</span></h3>
+            <ul class="tames">
+              <li><span><b>Drywallow Snapper</b><small>nv 37-38</small></span><em>Claw 5 *</em></li>
+              <li><span><b>Drywallow Daggermaw</b><small>nv 40-41</small></span><em>Bite 6 *</em></li>
+              <li><span><b>Ripscale</b><small>nv 39, rare</small></span><em>Bite 6, plan B</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Michael</b></span></div>
+            <p class="note warn">Si Drywallow Snapper no enseña Claw 5, me lo salto y cojo Claw 6 en Tanaris.</p>
+          </div>
+        </li>
+        <li class="stop dg">
+          <div class="lv">40–50</div><div class="dot"></div>
+          <div class="card">
+            <h3>Tanaris</h3>
+            <ul class="tames">
+              <li><span><b>Scorpid Hunter</b><small>nv 40-41</small></span><em>Claw 6</em></li>
+              <li><span><b>Giant Surf Glider</b><small>nv 48-50</small></span><em>Bite 7, a nivel 48</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Laziphus</b></span><span>Mazmorra: <b>Zul'Farrak</b></span></div>
+          </div>
+        </li>
+        <li class="stop dg">
+          <div class="lv">~48</div><div class="dot"></div>
+          <div class="card">
+            <h3>Escapada a Dustwallow</h3>
+            <div class="meta"><span>Mazmorra: <b>Alcaz Prison</b></span></div>
+            <p class="note">Vuelo desde Tanaris a Theramore, hago la mazmorra con sus misiones y vuelvo.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <div class="lv">48–55</div><div class="dot"></div>
+          <div class="card">
+            <h3>Felwood</h3>
+            <ul class="tames">
+              <li><span><b>Angerclaw Mauler</b><small>nv 49-50</small></span><em>Claw 7</em></li>
+              <li><span><b>Felpaw Ravager</b><small>nv 51-52</small></span><em>Bite 7, plan B</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Maluressian</b></span></div>
+          </div>
+        </li>
+        <li class="stop">
+          <div class="lv">53–60</div><div class="dot"></div>
+          <div class="card">
+            <h3>Winterspring</h3>
+            <ul class="tames">
+              <li><span><b>Elder Shardtooth</b><small>nv 57-58</small></span><em>Claw 8</em></li>
+            </ul>
+            <div class="meta"><span>Establo: <b>Azzleby</b></span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="mascotas" aria-labelledby="h-mascotas">
+      <h2 id="h-mascotas">Mascotas</h2>
+      <p class="lead">Los rangos de Bite y Claw que voy a ir aprendiendo. El número de debajo es el nivel que necesita la mascota para usar ese rango.</p>
+
+      <div class="ladder">
+        <div class="head r">Bite</div><div class="head c">Rango</div><div class="head">Claw</div>
+
+        <div class="beast r"><b>Webwood Silkspinner</b><span>Teldrassil</span></div>
+        <div class="rank"><b>II</b><span>pet nv 8</span></div>
+        <div class="beast"><b>Strigid Hunter</b><span>Teldrassil</span></div>
+
+        <div class="beast r"><b>Ghostpaw Runner</b><span>Ashenvale</span></div>
+        <div class="rank"><b>III</b><span>pet nv 16</span></div>
+        <div class="beast"><b>Clattering Crawler *</b><span>Ashenvale</span></div>
+
+        <div class="beast r"><b>Giant Moss Creeper</b><span>Hillsbrad</span></div>
+        <div class="rank"><b>IV</b><span>pet nv 24</span></div>
+        <div class="beast"><b>Elder Ashenvale Bear</b><span>Ashenvale</span></div>
+
+        <div class="beast r"><b>Plains Creeper</b><span>Arathi</span></div>
+        <div class="rank"><b>V</b><span>pet nv 32</span></div>
+        <div class="beast"><b>Drywallow Snapper *</b><span>Dustwallow</span></div>
+
+        <div class="beast r"><b>Drywallow Daggermaw *</b><span>Dustwallow</span></div>
+        <div class="rank"><b>VI</b><span>pet nv 40</span></div>
+        <div class="beast"><b>Scorpid Hunter</b><span>Tanaris</span></div>
+
+        <div class="beast r"><b>Giant Surf Glider</b><span>Tanaris</span></div>
+        <div class="rank"><b>VII</b><span>pet nv 48</span></div>
+        <div class="beast"><b>Angerclaw Mauler</b><span>Felwood</span></div>
+
+        <div class="beast r"><b>Bloodaxe Worg *</b><span>Lower Blackrock Spire</span></div>
+        <div class="rank"><b>VIII</b><span>pet nv 56</span></div>
+        <div class="beast"><b>Elder Shardtooth</b><span>Winterspring</span></div>
+      </div>
+      <p class="note warn">* Sin confirmar con los datos de la beta. Bite 8 depende de que el Bloodaxe Worg siga en LBRS y lo enseñe.</p>
+
+      <div class="fixed">
+        <div><span><small>Del 10 al 24</small><b>Elder Nightsaber</b></span><strong>1.4</strong></div>
+        <div><span><small>Del 24 al 60</small><b>Starving Mountain Lion</b></span><strong>1.2</strong></div>
+      </div>
+      <p class="note">Mis dos mascotas fijas. El número es su velocidad de ataque en segundos: cuanto más baja, más pega.</p>
+
+      <ol class="steps" aria-label="Cómo entreno a la mascota">
+        <li><b>Establo</b>Dejo la mascota fija con el Stable Master.</li>
+        <li><b>Tamear</b>Domo la bestia que conoce el rango y la uso un rato.</li>
+        <li><b>Aprender</b>En cuanto aprendo la habilidad, la abandono.</li>
+        <li><b>Enseñar</b>Recupero mi mascota y le enseño el rango con Beast Training.</li>
+      </ol>
+    </section>
+
+    <section id="mazmorras" aria-labelledby="h-mazmorras">
+      <h2 id="h-mazmorras">Mazmorras que intentaré hacer</h2>
+      <p class="lead">En Forever la XP buena de las mazmorras está en sus misiones, no en los mobs, así que la idea es entrar una vez con todas las misiones cogidas. Estas cuatro me pillan de camino.</p>
+      <div class="dungeons">
+        <article class="dungeon">
+          <span class="tag tag-line">Recomendada nivel 22</span>
+          <h3>Blackfathom Deeps</h3>
+          <div class="where">Ashenvale</div>
+          <p>La primera parada en serio. Llego con las misiones de Darkshore y Ashenvale recogidas.</p>
+        </article>
+        <article class="dungeon">
+          <span class="tag tag-line">Nueva, recomendada nivel 28</span>
+          <h3>City of Dalaran</h3>
+          <div class="where">Alterac Mountains, al lado de Hillsbrad</div>
+          <p>Una de las mazmorras nuevas de Forever. Tiene 9 jefes, así que toca reservarle tiempo.</p>
+        </article>
+        <article class="dungeon">
+          <span class="tag tag-line">Recomendada nivel 42</span>
+          <h3>Zul'Farrak</h3>
+          <div class="where">Tanaris</div>
+          <p>Está dentro de la zona donde paso del 40 al 50. La que mejor encaja de toda la ruta.</p>
+        </article>
+        <article class="dungeon">
+          <span class="tag tag-line">Nueva, recomendada nivel 48</span>
+          <h3>Alcaz Prison</h3>
+          <div class="where">Dustwallow Marsh</div>
+          <p>Escapada desde Tanaris volando a Theramore. Recojo las misiones de camino y vuelvo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="talentos" aria-labelledby="h-talentos">
+      <h2 id="h-talentos">Talentos: 31 / 20 / 0</h2>
+      <p class="lead">Beast Mastery para que la mascota y los halcones hagan el trabajo, con 20 puntos en Marksmanship para rematar.</p>
+
+      <div class="bars">
+        <div class="bar"><header>Beast Mastery <span style="color:var(--gold)">31</span></header><div class="track"><i style="width:61%;background:var(--gold)"></i></div></div>
+        <div class="bar"><header>Marksmanship <span style="color:var(--leaf)">20</span></header><div class="track"><i style="width:39%;background:var(--leaf)"></i></div></div>
+        <div class="bar"><header>Survival <span style="color:var(--mute)">0</span></header><div class="track"><i style="width:0"></i></div></div>
+      </div>
+
+      <figure>
+        <img src="img/arbol-talentos.png" alt="Árbol de talentos a nivel 60: 31 puntos en Beast Mastery, 20 en Marksmanship y 0 en Survival" width="1174" height="599" loading="lazy">
+        <figcaption>El árbol completo a nivel 60.</figcaption>
+      </figure>
+
+      <ol class="phases">
+        <li><span class="lv">10–19</span><b>Arranque</b><span>Deadly Aspects 5/5, Focused Fire 2/2, Pathfinding 2/2 y el primer punto en Endurance Training.</span></li>
+        <li class="key"><span class="lv">20–25</span><b>Furia y halcón</b><span>Unleashed Fury 5/5 y Summon Hawk a nivel 25. Desde aquí, dos halcones siempre fuera.</span></li>
+        <li class="key"><span class="lv">26–34</span><b>Utilidad</b><span>Ferocity 5/5, con Bestial Swiftness en el 29 e Intimidation en el 30, y Bestial Discipline 2/2.</span></li>
+        <li class="key"><span class="lv">35–40</span><b>Cierre de BM</b><span>Frenzy 5/5 y Bestial Wrath a nivel 40.</span></li>
+        <li><span class="lv">41–52</span><b>Salto a MM</b><span>Lethal Attacks 5/5, Careful Aim 5/5 y Rapid Killing 2/2.</span></li>
+        <li class="key"><span class="lv">53–60</span><b>Final</b><span>Efficiency 3/5, Trueshot Aura en el 56 y Mortal Shots 4/5.</span></li>
+      </ol>
+
+      <figure>
+        <img src="img/orden-talentos.png" alt="Orden de talentos nivel a nivel, del 10 al 60" width="1177" height="589" loading="lazy">
+        <figcaption>El orden exacto, punto a punto.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <section class="close" aria-labelledby="h-close">
+    <img src="img/logo.svg" alt="Logo de Seveneleven">
+    <h2 id="h-close">Nos vemos en Azeroth</h2>
+    <p>El leveo lo iré haciendo en directo en Twitch.</p>
+    <a class="btn" href="https://www.twitch.tv/seveneleven_tv">Ver el canal en Twitch</a>
+  </section>
+
+  <footer>Plan hecho con datos de la beta de WoW Forever (septiembre de 2026). Puede cambiar.</footer>
+</div>
+</body>
+</html>
